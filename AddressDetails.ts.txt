@@ -1,0 +1,128 @@
+import React from 'react';
+import { Text, View, StyleSheet, TextInput, Image, ScrollView, TouchableOpacity } from 'react-native';
+import Constants from 'expo-constants';
+import Feather from "react-native-vector-icons/Feather";
+import { useState, useEffect } from 'react';
+import RNPickerSelect from 'react-native-picker-select';
+
+export default function App() {
+    const [City, setCityValue] = useState("");
+    const [Area, setAreaValue] = useState("");
+    const [Country, onChangeText] = React.useState(null);
+    const [Street, onChangeStreet] = React.useState(null);
+    const [streetNumber, onChangeStreetNumber] = React.useState(null);
+
+    return (
+        <View style={styles.addressStyle}>
+            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                <Text style={{ textAlign: 'center', paddingLeft: 150, paddingRight: 130, fontWeight: 500, fontSize: 20, }}>العنوان</Text>
+
+                <Feather
+                    name='chevron-right'
+                    color='#878787'
+                    size={23}
+                />
+            </View>
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={{ paddingTop: 40, textAlign: 'center', paddingLeft: 170, fontSize: 15, fontWeight: 400 }}>
+                    احصل علي عنوانك الحالي
+                </Text>
+                <View style={styles.imageStyle}>
+                    <Image
+                        source={require('./Vector.png')}
+
+                    />
+                </View>
+            </View>
+            <ScrollView>
+                <Text style={styles.input}>الدولة</Text>
+                <RNPickerSelect
+                    items={[
+                        { label: 'مصر', value: 'مصر' },
+
+                    ]}
+                    style={styles.selectStyle}
+                    placeholder={{ label: "مصر", value: null, color: '#1C1C1C' }}
+                />
+
+                <Text style={styles.input}>المدينة</Text>
+                <RNPickerSelect
+                    items={[
+                        { label: 'الاسكندرية', value: 'الاسكندرية' },
+                        { label: 'القاهرة', value: 'القاهرة' },
+                        { label: 'طنطا', value: 'طنطا' }
+
+                    ]}
+
+
+                    placeholder={{ label: "القاهرة", value: null, color: '#1C1C1C' }}
+                />
+
+
+                <Text style={styles.input}>المنطقة</Text>
+                <RNPickerSelect
+                    items={[
+                        { label: 'مصر الجديدة', value: 'مصر الجديدة' },
+
+
+                    ]}
+                    placeholder={{
+                        label: "مصر الجديدة", value: null, color: '#1C1C1C'
+                    }}
+                />
+
+
+                <Text style={styles.input}>اسم الشارع</Text>
+                <RNPickerSelect
+                    items={[
+                        { label: 'شارع تسعين ', value: 'تسعين شارع' },
+
+
+                    ]}
+                    placeholder={{ label: "شارع تسعين", value: null, color: '#1C1C1C' }}
+                />
+
+                <Text style={styles.input}>رقم المبني </Text>
+                <RNPickerSelect
+                    items={[
+                        { label: 'مبني تسعة  ', value: ' مبني تسعة' },
+
+
+                    ]}
+                    placeholder={{ label: " مبني تسعة", value: null, color: '#1C1C1C' }}
+                />
+            </ScrollView>
+            <TouchableOpacity style={{ paddingTop: 50, }}>
+                <Text style={{
+                    textAlign: 'center', color: '#ffffff'
+                    , backgroundColor: '#3A82F8', borderRadius: 8, padding: 11
+                }}> اضافة عنوان</Text>
+            </TouchableOpacity>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    addressStyle: {
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#fffff',
+        padding: 8,
+
+    },
+    imageStyle: {
+        paddingTop: 40,
+        paddingLeft: 10
+    },
+    input: {
+        paddingBottom: 6,
+        fontSize: 14,
+        fontWeight: 400,
+        color: '#1C1C1C'
+
+
+    },
+   
+
+
+});

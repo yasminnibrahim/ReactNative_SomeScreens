@@ -1,0 +1,143 @@
+import  React from 'react';
+import { Text, View, StyleSheet , ScrollView, TouchableOpacity} from 'react-native';
+import Constants from 'expo-constants';
+import Feather from "react-native-vector-icons/Feather";
+ import CalendarPicker from 'react-native-calendar-picker';
+import { Card } from 'react-native-paper';
+
+
+
+export default function App() {
+
+  return (
+   <ScrollView>
+      <View style={styles.addressStyle}>
+        <View style={{flexDirection:'row',paddingTop:10}}>
+            <Text style={{textAlign:'center',paddingLeft:117,paddingRight:110,fontWeight:500,fontSize:20,}}> جدول المواعيد</Text>
+            
+            <Feather
+                name='chevron-right'
+                color='#878787'
+                size={23}
+            />
+            </View>
+            <Text style={styles.input}> الايام المتاحة</Text>
+      
+ <CalendarPicker
+                  weekdays={['الاحد','الاثنين','الثلاثاء','الاربعاء','الخميس','الجمعة','السبت' ]}
+                  months={['يناير',' فبراير','مارس','أبريل',
+                  'مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر',
+
+                  ]}
+          previousTitle="<"
+          nextTitle=">"
+          todayBackgroundColor='#3A82F8'
+          selectedDayColor='#3A82F8'
+          selectedDayTextColor="#ffffff"
+          selectedMonthColor='#3A82F8'
+          monthTitleStyle={{
+            color:'#3A82F8',
+            fontWeight:400,
+            fontSize:16
+          }}
+          yearTitleStyle={{
+            color:'#3A82F8',
+            fontWeight:400,
+            fontSize:16
+          }}
+          previousTitleStyle={{
+            color:'#3A82F8',
+            fontWeight:400,
+            fontSize:17,
+          }}
+          nextTitleStyle={{
+            color:'#3A82F8',
+            fontWeight:400,
+            fontSize:17
+          }}
+          
+          selectedDayStyle={{
+            width:30,
+            height:30,
+            borderRadius:9,
+            backgroundColor:'#3A82F8'
+
+          }}
+          todayTextStyle={{
+            width:30,
+            height:30,
+            borderRadius:8,
+            backgroundColor:'#3A82F8',
+            textAlign:'center',
+            paddingTop:5
+          }}
+     />
+            <Text style={styles.input}> الساعات المتاحة</Text>
+            <Card style={{borderColor:'#F3B052'}}>
+            <Text style={{color:'#3A82F8', fontSize:18, fontWeight:500}}>19 مارس 2022
+             </Text>
+             <View style={{flexDirection:'row' , paddingTop:20,}}>
+             <TouchableOpacity style={styles.btn}>
+              <Text style={styles.btnText}>12 م</Text>
+              </TouchableOpacity>
+             <TouchableOpacity style={styles.btn}>
+              <Text style={styles.btnText}>12 م</Text>
+              </TouchableOpacity>
+             <TouchableOpacity style={styles.btn}>
+              <Text style={styles.btnText}>12 م</Text>
+              </TouchableOpacity>
+             <TouchableOpacity style={styles.btn}> 
+             <Text style={styles.btnText}>12 م</Text>
+             </TouchableOpacity>
+             </View>
+             <View style={{flexDirection:'row' , }}>
+             <TouchableOpacity style={styles.btn2}>
+             <Text style={styles.btnText}>12 م</Text>
+             </TouchableOpacity>
+             <TouchableOpacity style={styles.btn2}>
+              <Text style={styles.btnText}>12 م</Text>
+             </TouchableOpacity>
+             <TouchableOpacity style={styles.btn2}>
+            <Text style={styles.btnText}>12 م</Text>
+             </TouchableOpacity>
+             
+             </View>
+            </Card>
+    </View>
+    </ScrollView>
+  );
+}
+
+const styles = StyleSheet.create({
+  addressStyle: {
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#fffff',
+        padding: 8,
+       
+    },
+  input: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 400,
+    textAlign: 'right',
+  },
+  btn:{
+    paddingRight:50,
+    borderRadius:5,
+    borderColor:'#AEAEB2',
+    width:80,
+    height:50,
+  },
+  btn2:{
+    paddingRight:34,
+    paddingLeft:12,
+    color:'#AEAEB2',
+  },
+  btnText:{
+    color:'#AEAEB2',
+    fontWeight:400,
+    fontSize:14,
+    borderColor:'#AEAEB2',
+  },
+});

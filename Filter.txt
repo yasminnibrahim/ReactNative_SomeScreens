@@ -1,0 +1,156 @@
+import React from "react";
+import { Text, View, StyleSheet, Picker , CheckBox, ScrollView , TouchableOpacity} from 'react-native';
+import Constants from 'expo-constants';
+import Feather from "react-native-vector-icons/Feather";
+import { useState, useEffect } from 'react';
+import RNPickerSelect from 'react-native-picker-select';
+import { Checkbox } from 'react-native-paper';
+
+
+let data1=[{
+value:'القسم الاول'
+
+}];
+let data2=[{
+value:' الخدمة'
+
+}];
+let data3=[{
+value:' مدينة الاسكندرية'
+
+}];
+let data4=[{
+value:' الحي'
+
+}];
+;
+
+export default function App() {
+   const [isSelected, setSelection] = React.useState(false);
+      const [price, setPrice] = React.useState(false);
+
+  return (
+    <ScrollView>
+    <View style={styles.addressStyle}>
+        <View style={{flexDirection:'row',paddingTop:10}}>
+            <Text style={{textAlign:'center',paddingLeft:150,paddingRight:130,fontWeight:500,fontSize:20,}}>فلتر</Text>
+            
+            <Feather
+                name='chevron-right'
+                color='#878787'
+                size={23}
+            />
+            </View>
+         <View style={{paddingTop:40}}>
+                        <View style={{paddingBottom:10}}>
+
+         <Picker
+        //selectedValue={data1}
+        style={{ height: 50, width: 310 , fontSize:14, fontWeight:400, color:'#1C1C1C'}}>
+                <Picker.Item label="القسم" value="القسم" />
+
+      
+               </Picker>
+</View>
+               <View style={{paddingBottom:10}}>
+         <Picker
+        //selectedValue={data1}
+        style={{ height: 50, width: 310 , fontSize:14, fontWeight:400, color:'#1C1C1C'}}>
+                <Picker.Item label=" اسم الخدمة" value="الخدمة" />
+
+      
+               </Picker>
+
+               </View>
+                              <View style={{paddingBottom:10}}>
+
+         <Picker
+        //selectedValue={data1}
+        style={{ height: 50, width: 310 , fontSize:14, fontWeight:400, color:'#1C1C1C'}}>
+                <Picker.Item label="المدينة" value="المدينة" />
+
+      
+               </Picker>
+               </View>
+
+                       
+         <Picker
+        //selectedValue={data1}
+        style={{ height: 50, width: 310 , fontSize:14, fontWeight:400, color:'#1C1C1C'}}>
+                <Picker.Item label="الحي" value="الحي" />
+
+      
+               </Picker>
+</View>
+<Text style={{color:'#575757', textAlign:'center', paddingTop:20}} >____________________________________</Text>
+<Text style={{paddingTop:10, fontSize:16, fontWeight:400}}>  تصنيف حسب</Text>
+<View style={{flexDirection:'row-reverse'}}>
+ <Text style={styles.textStyle}> الاعلي تقيما</Text>
+  <Checkbox
+            color='#000000'
+            status={isSelected ? 'unchecked' : 'checked'}
+            onPress={() => {
+                setSelection(!isSelected);
+            }}
+        />
+        </View>
+        <View style={{flexDirection:'row-reverse'}}>
+  <Text style={styles.textStyle}> الاقل تقيما  </Text>
+<Checkbox
+            color='#000000'
+            status={isSelected ? 'checked' : 'unchecked'}
+            onPress={() => {
+                setSelection(!isSelected);
+            }}
+        /> 
+        </View>
+        <View style={{flexDirection:'row-reverse'}}>
+        <Text style={styles.textStyle}> الاعلي سعرا</Text>
+  <Checkbox
+            color='#000000'
+            status={price ? 'unchecked' : 'checked'}
+            onPress={() => {
+                setPrice(!price);
+            }}
+        />
+        </View>
+        <View style={{flexDirection:'row-reverse'}}>
+  <Text style={styles.textStyle}> الاقل سعرا  </Text>
+<Checkbox
+            color='#000000'
+            status={price ? 'checked' : 'unchecked'}
+            onPress={() => {
+                setPrice(!price);
+            }}
+        />
+        </View>
+        <Text style={{color:'#575757', textAlign:'center', paddingTop:20}} >____________________________________</Text>
+        <Text> الميزانية                            من ...  الي ...</Text>
+        <TouchableOpacity style={{ paddingTop: 50, }}>
+                <Text style={{
+                    textAlign: 'center', color: '#ffffff'
+                    , backgroundColor: '#3A82F8', borderRadius: 8, padding: 11
+                }}> بحث </Text>
+            </TouchableOpacity>
+        </View>
+        </ScrollView>
+    );
+}
+
+const styles = StyleSheet.create({
+    addressStyle: {
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#fffff',
+        padding: 8,
+       
+    },
+    textStyle:{
+      paddingTop:10,
+      fontWeight:400,
+      fontSize:14,
+      paddingLeft:150,
+    },
+    
+
+});

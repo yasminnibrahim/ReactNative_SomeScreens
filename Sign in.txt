@@ -1,0 +1,56 @@
+import "./styles.css";
+import React, { useState } from "react";
+
+
+
+
+export default function App() {
+  
+  const [time, setTime] = useState([
+    {Day:'Monday',Time:'6 pm',id:1, Doctor:'X'},
+  {Day:'Sunday',Time:'2 pm',id:2, Doctor:'y'},
+  {Day:'Monday',Time:'5 pm',id:3, Doctor:'Z'},
+  {Day:'Tuesday',Time:'9 pm',id:4, Doctor:'A'}
+])
+const [user, setUser] = useState([
+  {Day:'Monday',Time:'6 pm',id:1, Doctor:'X',Name:'Patient1'},
+{Day:'Sunday',Time:'2 pm',id:2, Doctor:'y',Name:'Patient2'},
+{Day:'Monday',Time:'5 pm',id:3, Doctor:'Z',Name:'Patient3'},
+{Day:'Tuesday',Time:'9 pm',id:4, Doctor:'A',Name:'Patient4'}
+])
+    
+    
+ 
+  return (
+    <div className="App">
+      <h2 >Welcome To Our Hospital!</h2>
+      <form>
+        <div style={{marginBottom:20}}>
+  <label >
+    Name:
+    <input type="text" name="name" />
+    
+  </label>
+  </div>
+  <div style={{marginBottom:20}}>
+  <label>
+    Gmail:
+    <input type="email" name="Gmail"/>
+    </label>
+    </div>
+    <div style={{marginBottom:20}}>
+  <label>
+    Password:
+    <input type="email" name="Gmail"/>
+    </label>
+    </div>
+  <button
+  style={{color:'#072377', width:60,height:30, backgroundColor:'white',
+  borderRadius:8,borderColor:'white'
+ }}
+  >Sign in</button>
+</form>
+      </div>
+
+  );
+}

@@ -1,0 +1,90 @@
+import React from "react";
+import { Text, View, StyleSheet, Picker , TextInput, ScrollView , TouchableOpacity} from 'react-native';
+import Constants from 'expo-constants';
+import Feather from "react-native-vector-icons/Feather";
+import { Searchbar } from 'react-native-paper';
+
+
+
+export default function App() {
+   const [text, onChangeText] = React.useState(null);
+
+  return (
+    <ScrollView>
+    <View style={styles.addressStyle}>
+        <View style={{flexDirection:'row-reverse',paddingTop:10, }}>
+           
+            <Feather
+                name='chevron-right'
+                color='#878787'
+                size={23}
+            />
+            
+            <View style={{flexDirection:'row-reverse', paddingRight:9}}>
+             <Feather
+                name='search'
+                color='#878787'
+                size={19}
+            />
+         <TextInput
+                        style={styles.input}
+                        onChangeText={onChangeText}
+                        value={text}
+                        placeholder="               ابحث عن ما تريد"
+                    />
+                   <View style={{paddingRight:40,paddingTop:5}}>
+                    <Feather
+                name='align-center'
+                color='#878787'
+                size={19}
+            />
+            </View>
+                    </View>
+                    </View>
+       <TouchableOpacity style={styles.button} >
+                    <Text style={{ textAlign: 'right', color: '#000000', fontSize: 16,paddingTop:5}}>تصليح حنفية مطبخ</Text>
+                     <View style={{paddingTop:5,paddingRight:120}}>
+                     <Feather
+                name='arrow-up-right'
+                color='#878787'
+                size={19}
+            />
+            </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} >
+                    <Text style={{ textAlign: 'right', color: '#000000', fontSize: 16,paddingTop:5}}>تصليح حنفية مطبخ</Text>
+<View style={{paddingTop:5,paddingRight:120}}>
+                     <Feather
+                name='arrow-up-right'
+                color='#878787'
+                size={19}
+            />
+            </View>
+                </TouchableOpacity>
+        </View>
+        </ScrollView>
+    );
+}
+
+const styles = StyleSheet.create({
+    addressStyle: {
+        justifyContent: 'center',
+        paddingTop: Constants.statusBarHeight,
+        backgroundColor: '#fffff',
+        padding: 8,
+       
+    },
+    
+     button: {
+        
+        
+       flexDirection:'row-reverse',
+       
+        margin: 10,
+        borderRadius: 5,
+
+    },
+    
+
+});
